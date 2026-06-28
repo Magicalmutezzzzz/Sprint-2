@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <div class="container">
+
+        <h1>
+            <i class="fa-solid fa-wallet"></i>
+            Smart Expense Tracker
+        </h1>
+
+        <!-- Warning Banner -->
+        <div id="warning" class="warning hidden">
+            ⚠ Remaining balance is below 10% of your salary.
+        </div>
+
+        <!-- Input Section -->
+        <div class="card">
+
+            <div class="input-group">
+
+                <label>Total Salary</label>
+
+                <input
+                    type="number"
+                    id="salary"
+                    placeholder="Enter Salary">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expense Name</label>
+
+                <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Expense Name">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Expense Amount</label>
+
+                <input
+                    type="number"
+                    id="expenseAmount"
+                    placeholder="Expense Amount">
+
+            </div>
+
+            <button id="addExpense">
+                <i class="fa-solid fa-plus"></i>
+                Add Expense
+            </button>
+            <br><br><br>
+
+            <p id="error" class="error"></p>
+
+        </div>
+
+        <!-- Summary Cards -->
+
+        <div class="summary">
+
+            <div class="box salary-box">
+
+                <h3>Total Salary</h3>
+
+                <h2 id="salaryDisplay">₹0</h2>
+
+            </div>
+
+            <div class="box expense-box">
+
+                <h3>Total Expense</h3>
+
+                <h2 id="expenseDisplay">₹0</h2>
+
+            </div>
+
+            <div class="box balance-box">
+
+                <h3>Remaining Balance</h3>
+
+                <h2 id="balanceDisplay">₹0</h2>
+
+            </div>
+
+        </div>
+
+        <!-- Expense List -->
+
+        <div class="card">
+
+            <div class="table-header">
+
+                <h2>Expense History</h2>
+
+                <button id="downloadPDF">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Download Report
+                </button>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Expense</th>
+
+                        <th>Amount</th>
+
+                        <th>Delete</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="expenseList">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    
+
+    </div>
+
+    <div class="dashboard-grid">
+
+            <div class="card currency-card">
+
+                <label>Select Currency</label>
+
+                <select id="currency">
+
+                    <option value="INR">INR ₹</option>
+
+                    <option value="USD">USD $</option>
+
+                    <option value="EUR">EUR €</option>
+
+                </select>
+
+            </div>
+
+            <div class="card chart-card">
+
+                <canvas id="expenseChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
